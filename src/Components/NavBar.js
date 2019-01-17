@@ -33,6 +33,11 @@ export default class NaviBar extends Component {
     	this.setState({ signupShow: true });
   	}
 
+  	handleProfileClick(e) {
+  		 e.preventDefault();
+  		window.location = 'MyProfile';
+  	}
+
 	render(props) {
 		return (
 			
@@ -50,6 +55,12 @@ export default class NaviBar extends Component {
 			      </NavItem>
 			      <NavItem eventKey={2} href="#">
 			        About
+			      </NavItem>
+			      <NavItem eventKey={3} href="#">
+			        Submit
+			      </NavItem>
+			      <NavItem onClick = {this.handleProfileClick} href="#">
+			        My Profile
 			      </NavItem>
 			      {/*<NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
 			        <MenuItem eventKey={3.1}>Action</MenuItem>
@@ -69,19 +80,50 @@ export default class NaviBar extends Component {
 			            <Modal.Title>Sign Up</Modal.Title>
 			          </Modal.Header>
 			          <Modal.Body>
-			            <FormGroup>
-					      <ControlLabel>Email address</ControlLabel>
-					      <FormControl
-					      	type="text"
-				            placeholder="Enter email"
-					      />
-					    </FormGroup>
-					    <FormGroup>
-					      <ControlLabel>Password</ControlLabel>
-					      <FormControl
-					      	type="password"
-					      />
-					    </FormGroup>
+			            <form>
+			            	<FormGroup>
+						      <ControlLabel>First Name</ControlLabel>
+						      <FormControl
+						      	type="text"
+						      />
+						    </FormGroup>
+						    <FormGroup>
+						      <ControlLabel>Last Name</ControlLabel>
+						      <FormControl
+						      	type="text"
+						      />
+						    </FormGroup>
+						    <FormGroup>
+						      <ControlLabel>Display Name</ControlLabel>
+						      <FormControl
+						      	type="text"
+						      />
+						    </FormGroup>
+						    <FormGroup>
+						      <ControlLabel>Email (Login)</ControlLabel>
+						      <FormControl
+						      	type="text"
+						      />
+						    </FormGroup>
+						    <FormGroup>
+						      <ControlLabel>Password</ControlLabel>
+						      <FormControl
+						      	type="password"
+						      />
+						    </FormGroup>
+						    <FormGroup>
+						      <ControlLabel>Confirm Password</ControlLabel>
+						      <FormControl
+						      	type="password"
+						      />
+						    </FormGroup>
+						    <FormGroup>
+						      <ControlLabel>Major</ControlLabel>
+						      <FormControl
+						      	type="text"
+						      />
+						    </FormGroup>
+			            </form>
 			          </Modal.Body>
 			          <Modal.Footer>
 			            <Button onClick={this.handleSignupClose}>Submit</Button>
@@ -97,19 +139,21 @@ export default class NaviBar extends Component {
 			            <Modal.Title>Log In</Modal.Title>
 			          </Modal.Header>
 			          <Modal.Body>
-			            <FormGroup>
-					      <ControlLabel>Email address</ControlLabel>
-					      <FormControl
-					      	type="text"
-				            placeholder="Enter email"
-					      />
-					    </FormGroup>
-					    <FormGroup>
-					      <ControlLabel>Password</ControlLabel>
-					      <FormControl
-					      	type="password"
-					      />
-					    </FormGroup>
+			            <form>
+				            <FormGroup>
+						      <ControlLabel>Email address</ControlLabel>
+						      <FormControl
+						      	type="text"
+					            placeholder="Enter email"
+						      />
+						    </FormGroup>
+						    <FormGroup>
+						      <ControlLabel>Password</ControlLabel>
+						      <FormControl
+						      	type="password"
+						      />
+						    </FormGroup>
+					    </form>
 			          </Modal.Body>
 			          <Modal.Footer>
 			            <Button onClick={this.handleLoginClose}>Submit</Button>
