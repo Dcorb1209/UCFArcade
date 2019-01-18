@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Modal, Button, FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
 import './NavBar.css';
+import { BrowserRouter, Route } from "react-router-dom";
 
 export default class NaviBar extends Component {
 	constructor(props) {
@@ -33,18 +34,13 @@ export default class NaviBar extends Component {
     	this.setState({ signupShow: true });
   	}
 
-  	handleProfileClick(e) {
-  		 e.preventDefault();
-  		window.location = 'MyProfile';
-  	}
-
 	render(props) {
 		return (
 			
 			<Navbar inverse collapseOnSelect>
 			  <Navbar.Header>
 			    <Navbar.Brand>
-			      <a href="#brand">Arcade GRASS</a>
+			      <a href="/">Arcade GRASS</a>
 			    </Navbar.Brand>
 			    <Navbar.Toggle />
 			  </Navbar.Header>
@@ -59,7 +55,7 @@ export default class NaviBar extends Component {
 			      <NavItem eventKey={3} href="#">
 			        Submit
 			      </NavItem>
-			      <NavItem onClick = {this.handleProfileClick} href="#">
+			      <NavItem href="MyProfile">
 			        My Profile
 			      </NavItem>
 			      {/*<NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
