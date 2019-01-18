@@ -9,9 +9,9 @@ class MyProfile extends Component {
         <NaviBar/>
         <Grid>
           <Row>
-            <Col xs={4} md={3}>
+            <Col xs={6} md={2}>
               <Thumbnail src={require('./avatarTest.png')}>
-                  <Button bsStyle="primary">Change Avatar</Button>
+                  <Button bsStyle="primary" bsSize='xsmall'>Change Avatar</Button>
               </Thumbnail>
             </Col>
           </Row>

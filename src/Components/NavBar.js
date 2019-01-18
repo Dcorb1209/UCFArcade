@@ -46,13 +46,13 @@ export default class NaviBar extends Component {
 			  </Navbar.Header>
 			  <Navbar.Collapse>
 			    <Nav>
-			      <NavItem eventKey={1} href="#">
+			      <NavItem eventKey={1} href="Games">
 			        Games
 			      </NavItem>
-			      <NavItem eventKey={2} href="#">
+			      <NavItem eventKey={2} href="About">
 			        About
 			      </NavItem>
-			      <NavItem eventKey={3} href="#">
+			      <NavItem eventKey={3} href="Submit">
 			        Submit
 			      </NavItem>
 			      <NavItem href="MyProfile">
