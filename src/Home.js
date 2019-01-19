@@ -25,7 +25,7 @@ class Home extends Component {
             <img width={900} height={500} alt="900x500" src={require('./slideTest.png')} />
             <Carousel.Caption>
               <h3>Game 1</h3>
-              <p>Game 1 description bla bla bla</p>
+              <p>Game 1 description bla bla ba</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
