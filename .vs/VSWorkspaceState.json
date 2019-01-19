@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public"
+    "\\public",
+    "\\src"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\src\\Home.js",
   "PreviewInSolutionExplorer": false
 }
