@@ -9,7 +9,7 @@ class Home extends Component {
       <div className="App">
         <NaviBar/>
         <Jumbotron>
-          <h1>Welcome to Arcade ASS!</h1>
+          <h1>Welcome to Arcade GRASS!</h1>
           <p>
             Test
           </p>
