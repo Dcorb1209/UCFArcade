@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NaviBar from './Components/NavBar';
-import { Button, Thumbnail, Grid, Row, Col, Image, Well } from 'react-bootstrap';
+import { Button, Thumbnail, Grid, Row, Col } from 'react-bootstrap';
 
 class MyProfile extends Component {
   render() {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import NaviBar from './Components/NavBar';
 import { Jumbotron, Button } from 'react-bootstrap';
-import { BrowserRouter, Route } from "react-router-dom";
 
 class Home extends Component {
   render() {

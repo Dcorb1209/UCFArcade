@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import NaviBar from './Components/NavBar';
-import { Jumbotron, Button } from 'react-bootstrap';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from './Home';
 import MyProfile from './MyProfile';
