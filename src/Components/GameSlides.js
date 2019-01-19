@@ -6,7 +6,6 @@ export class GameSlides extends Component {
   render() {
     return (
       <div className="App">
-          <p>Test gameslides</p>
         <Grid>
         <Row>
         <Col md={8} mdOffset={2}>
