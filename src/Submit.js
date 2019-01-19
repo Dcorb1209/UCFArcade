@@ -16,9 +16,15 @@ class Submit extends Component {
 
   getValidationState() {
     const length = this.state.value.length;
-    if (length > 10) return 'success';
-    else if (length > 5) return 'warning';
-    else if (length > 0) return 'error';
+    if (length >= 1) return 'success';
+
+    return null;
+  }
+  getValidationStateDesc() {
+    const length = this.state.value.length;
+    if (length >= 100) return 'success';
+    else if (length >= 1) return 'warning';
+
     return null;
   }
 
@@ -32,20 +38,38 @@ class Submit extends Component {
         <div className = 'SubmissionPage'>
         <h1>Submission</h1>
         <p>To submit your game you need to fill out the following page. Please include a one to three paragraph summary or desription of your game.</p>
+        
+        {/*Game Title Form*/}
         <form>
         <FormGroup
-          controlId="formBasicText"
+          controlId="gameTitleForm"
           validationState={this.getValidationState()}
         >
-          <ControlLabel>Working example with validation</ControlLabel>
+          <ControlLabel>Title of the game</ControlLabel>
           <FormControl
             type="text"
             value={this.state.value}
-            placeholder="Enter text"
+            placeholder="Enter the title of your game"
             onChange={this.handleChange}
           />
           <FormControl.Feedback />
-          <HelpBlock>Validation is based on string length.</HelpBlock>
+        </FormGroup>
+      </form>
+
+      {/*Game Description Form*/}
+      <form>
+        <FormGroup
+          controlId="gameDescriptionForm"
+          validationState={this.getValidationStateDesc()}
+        >
+          <ControlLabel>Game Description</ControlLabel>
+          <FormControl
+            type="text"
+            value={this.state.value}
+            placeholder="Enter the description of your game"
+            onChange={this.handleChange}
+          />
+          <FormControl.Feedback />
         </FormGroup>
       </form>
         </div>
