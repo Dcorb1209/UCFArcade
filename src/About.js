@@ -23,7 +23,7 @@ class About extends Component {
               </p>
             </Col>
             <Col md={6} mdPull={6}>
-              <Thumbnail src={require('./Images/workers.jpg')}></Thumbnail>
+              <Thumbnail src={require('./Images/arcade.png')}></Thumbnail>
             </Col>
           </Row>
 
