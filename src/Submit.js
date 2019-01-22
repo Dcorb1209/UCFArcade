@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {FormGroup, FormControl, ControlLabel, HelpBlock, Form, Button, Col, Checkbox} from 'react-bootstrap';
+import {FormGroup, FormControl, ControlLabel, HelpBlock, Form, Button, Col, Checkbox, Panel, Grid, Row} from 'react-bootstrap';
 import NaviBar from './Components/NavBar';
 import './Submit.css';
 
@@ -35,19 +35,18 @@ class Submit extends Component {
     return (
       <div className = 'FullPage'>
         <NaviBar/>
-        <div className = 'SubmissionPage'>
-        <h1>Submission</h1>
-        <p>To submit your game you need to fill out the following page. Please include a one to three paragraph summary or desription of your game.</p>
-
-
+        <div className="Header">
+        <h1>Submit a Game</h1>
+        </div>
+    
     <Form horizontal>           
       {/*Game Title Form*/}
       <FormGroup
         controlId="gameTitleForm"
         validationState={this.getValidationState()}
       >
-        <Col componentClass={ControlLabel} sm={2}>Title of the game</Col>
-        <Col sm={5}>
+        <Col componentClass={ControlLabel} md={4}>Title of the game</Col>
+        <Col md={4}>
          <FormControl
             type="text"
             value={this.state.value}
@@ -58,10 +57,10 @@ class Submit extends Component {
         </Col>
         </FormGroup>
   <FormGroup controlId="formDescription">
-    <Col componentClass={ControlLabel} sm={2}>
+    <Col componentClass={ControlLabel} md={4}>
       Description
     </Col>
-    <Col sm={5}>
+    <Col md={4}>
       <FormControl 
         componentClass="textArea" 
         type="text" 
@@ -70,10 +69,10 @@ class Submit extends Component {
   </FormGroup>
 
   <FormGroup controlId="formControls">
-    <Col componentClass={ControlLabel} sm={2}>
+    <Col componentClass={ControlLabel} md={4}>
       Controls
     </Col>
-    <Col sm={5}>
+    <Col md={4}>
       <FormControl 
         componentClass="textArea" 
         type="text" 
@@ -82,10 +81,10 @@ class Submit extends Component {
   </FormGroup>
 
   <FormGroup controlId="formVideo">
-    <Col componentClass={ControlLabel} sm={2}>
+    <Col componentClass={ControlLabel} md={4}>
       Video (Optional)
     </Col>
-    <Col sm={5}>
+    <Col md={4}>
       <FormControl  
         type="text" 
         placeholder="Video (Youtube Link)" />
@@ -93,10 +92,10 @@ class Submit extends Component {
   </FormGroup>
 
   <FormGroup controlId="formGameFile">
-    <Col componentClass={ControlLabel} sm={2}>
+    <Col componentClass={ControlLabel} md={4}>
       Game Files (Zip)
     </Col>
-    <Col sm={5}>
+    <Col md={4}>
       <FormControl  
         type="file" 
         placeholder="Choose File" />
@@ -105,10 +104,10 @@ class Submit extends Component {
 
 
   <FormGroup controlId="formGameScreenShot">
-    <Col componentClass={ControlLabel} sm={2}>
+    <Col componentClass={ControlLabel} md={4}>
       Banner Screenshot
     </Col>
-    <Col sm={5}>
+    <Col md={4}>
       <FormControl  
         type="file" 
         placeholder="Choose File" />
@@ -119,7 +118,7 @@ class Submit extends Component {
 
 
   <FormGroup>
-    <Col smOffset={2} sm={5}>
+    <Col md={4} mdOffset={4}>
       <Checkbox>Genre 1</Checkbox>
       <Checkbox>Genre 2</Checkbox>
       <Checkbox>Genre 3</Checkbox>
@@ -129,13 +128,11 @@ class Submit extends Component {
   </FormGroup>
 
   <FormGroup>
-    <Col smOffset={2} sm={10}>
-      <Button type="submit">Submit</Button>
+    <Col md={4} mdOffset={4}>
+      <Button bsStyle="primary">Submit</Button>
     </Col>
   </FormGroup>
-</Form>;
-
-        </div>
+</Form>
       </div>
     )
   }
