@@ -121,7 +121,7 @@ export default class NaviBar extends Component {
 			            </form>
 			          </Modal.Body>
 			          <Modal.Footer>
-			            <Button onClick={this.handleSignupClose}>Submit</Button>
+			            <Button bsStyle="primary" onClick={this.handleSignupClose}>Submit</Button>
 			          </Modal.Footer>
 			       </Modal>
 
@@ -139,19 +139,20 @@ export default class NaviBar extends Component {
 						      <ControlLabel>Email address</ControlLabel>
 						      <FormControl
 						      	type="text"
-					            placeholder="Enter email"
+					            placeholder="Email"
 						      />
 						    </FormGroup>
 						    <FormGroup>
 						      <ControlLabel>Password</ControlLabel>
 						      <FormControl
 						      	type="password"
+						      	placeholder="Password"
 						      />
 						    </FormGroup>
 					    </form>
 			          </Modal.Body>
 			          <Modal.Footer>
-			            <Button onClick={this.handleLoginClose}>Submit</Button>
+			            <Button bsStyle="primary" onClick={this.handleLoginClose}>Submit</Button>
 			          </Modal.Footer>
 			       </Modal>
 
