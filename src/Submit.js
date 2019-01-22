@@ -38,101 +38,66 @@ class Submit extends Component {
         <div className="Header">
         <h1>Submit a Game</h1>
         </div>
-    
-    <Form horizontal>           
-      {/*Game Title Form*/}
-      <FormGroup
-        controlId="gameTitleForm"
-        validationState={this.getValidationState()}
-      >
-        <Col componentClass={ControlLabel} md={4}>Title of the game</Col>
-        <Col md={4}>
-         <FormControl
-            type="text"
-            value={this.state.value}
+
+        <Grid>
+        <Row>
+        <Col xs={10} xsOffset={1} sm={6} smOffset={3}>
+        <Form>
+          <FormGroup>
+            <ControlLabel>Title of the Game</ControlLabel>
+            <FormControl
+              type="text"
               placeholder="Enter the title of your game"
-           onChange={this.handleChange}
-          />
-          <FormControl.Feedback />
+            />
+          </FormGroup>
+
+          <FormGroup controlId="formControlsTextarea">
+            <ControlLabel>Description</ControlLabel>
+            <FormControl componentClass="textarea" placeholder="Description" />
+          </FormGroup>
+
+          <FormGroup controlId="formControlsTextarea">
+            <ControlLabel>Controls</ControlLabel>
+            <FormControl componentClass="textarea" placeholder="Controls" />
+          </FormGroup>
+
+          <FormGroup>
+            <ControlLabel>Video (Optional)</ControlLabel>
+            <FormControl
+              type="text"
+              placeholder="Video (Youtube Link)"
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <ControlLabel>Game Files (Zip)</ControlLabel>
+            <FormControl
+              type="file"
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <ControlLabel>Banner Image</ControlLabel>
+            <FormControl
+              type="file"
+            />
+          </FormGroup>
+
+          <FormGroup>
+              <Checkbox>Genre 1</Checkbox>
+              <Checkbox>Genre 2</Checkbox>
+              <Checkbox>Genre 3</Checkbox>
+              <Checkbox>Genre 4</Checkbox>
+              <Checkbox>Genre 5</Checkbox>
+          </FormGroup>
+
+          <FormGroup>
+              <Button bsStyle="primary">Submit</Button>
+          </FormGroup>
+        </Form>
         </Col>
-        </FormGroup>
-  <FormGroup controlId="formDescription">
-    <Col componentClass={ControlLabel} md={4}>
-      Description
-    </Col>
-    <Col md={4}>
-      <FormControl 
-        componentClass="textArea" 
-        type="text" 
-        placeholder="Description" />
-    </Col>
-  </FormGroup>
-
-  <FormGroup controlId="formControls">
-    <Col componentClass={ControlLabel} md={4}>
-      Controls
-    </Col>
-    <Col md={4}>
-      <FormControl 
-        componentClass="textArea" 
-        type="text" 
-        placeholder="Controls" />
-    </Col>
-  </FormGroup>
-
-  <FormGroup controlId="formVideo">
-    <Col componentClass={ControlLabel} md={4}>
-      Video (Optional)
-    </Col>
-    <Col md={4}>
-      <FormControl  
-        type="text" 
-        placeholder="Video (Youtube Link)" />
-    </Col>
-  </FormGroup>
-
-  <FormGroup controlId="formGameFile">
-    <Col componentClass={ControlLabel} md={4}>
-      Game Files (Zip)
-    </Col>
-    <Col md={4}>
-      <FormControl  
-        type="file" 
-        placeholder="Choose File" />
-    </Col>
-  </FormGroup>
-
-
-  <FormGroup controlId="formGameScreenShot">
-    <Col componentClass={ControlLabel} md={4}>
-      Banner Screenshot
-    </Col>
-    <Col md={4}>
-      <FormControl  
-        type="file" 
-        placeholder="Choose File" />
-    </Col>
-  </FormGroup>
-
-
-
-
-  <FormGroup>
-    <Col md={4} mdOffset={4}>
-      <Checkbox>Genre 1</Checkbox>
-      <Checkbox>Genre 2</Checkbox>
-      <Checkbox>Genre 3</Checkbox>
-      <Checkbox>Genre 4</Checkbox>
-      <Checkbox>Genre 5</Checkbox>
-    </Col>
-  </FormGroup>
-
-  <FormGroup>
-    <Col md={4} mdOffset={4}>
-      <Button bsStyle="primary">Submit</Button>
-    </Col>
-  </FormGroup>
-</Form>
+        </Row>
+        </Grid>
       </div>
     )
   }
