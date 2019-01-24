@@ -9,9 +9,9 @@ class Home extends Component {
     return (
       <div className="App">
         <NaviBar/>
-        <Jumbotron>
-          <h1>Knights Arcade</h1>
-          <p>
+        <Jumbotron className ="Jumbo">
+          <h1 className = "text"> Knights Arcade</h1>
+          <p className = "text">
             We might need a new name
           </p>
           <p>

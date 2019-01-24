@@ -7,6 +7,8 @@
   height: 40vmin;
 }
 
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -29,4 +31,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Jumbo {
+  background-color: #354060;
+  color: white;
+}
+
+.text {
+  color: White
 }

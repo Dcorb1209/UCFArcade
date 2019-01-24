@@ -36,7 +36,7 @@ class Submit extends Component {
       <div className = 'FullPage'>
         <NaviBar/>
         <div className="Header">
-        <h1>Submit a Game</h1>
+        <h1 className = 'text '>Submit a Game</h1>
         </div>
 
         <Grid>
@@ -44,7 +44,7 @@ class Submit extends Component {
         <Col xs={10} xsOffset={1} sm={6} smOffset={3}>
         <Form>
           <FormGroup>
-            <ControlLabel>Title of the Game</ControlLabel>
+            <ControlLabel className = 'text'>Title of the Game</ControlLabel>
             <FormControl
               type="text"
               placeholder="Enter the title of your game"
@@ -52,17 +52,17 @@ class Submit extends Component {
           </FormGroup>
 
           <FormGroup controlId="formControlsTextarea">
-            <ControlLabel>Description</ControlLabel>
+            <ControlLabel className = 'text'>Description</ControlLabel>
             <FormControl componentClass="textarea" placeholder="Description" />
           </FormGroup>
 
           <FormGroup controlId="formControlsTextarea">
-            <ControlLabel>Controls</ControlLabel>
+            <ControlLabel className = 'text'>Controls</ControlLabel>
             <FormControl componentClass="textarea" placeholder="Controls" />
           </FormGroup>
 
           <FormGroup>
-            <ControlLabel>Video (Optional)</ControlLabel>
+            <ControlLabel className = 'text'>Video (Optional)</ControlLabel>
             <FormControl
               type="text"
               placeholder="Video (Youtube Link)"
@@ -70,25 +70,25 @@ class Submit extends Component {
           </FormGroup>
 
           <FormGroup>
-            <ControlLabel>Game Files (Zip)</ControlLabel>
+            <ControlLabel className = 'text'>Game Files (Zip)</ControlLabel>
             <FormControl
               type="file"
             />
           </FormGroup>
 
           <FormGroup>
-            <ControlLabel>Banner Image</ControlLabel>
+            <ControlLabel className = 'text'>Banner Image</ControlLabel>
             <FormControl
               type="file"
             />
           </FormGroup>
 
           <FormGroup>
-              <Checkbox>Genre 1</Checkbox>
-              <Checkbox>Genre 2</Checkbox>
-              <Checkbox>Genre 3</Checkbox>
-              <Checkbox>Genre 4</Checkbox>
-              <Checkbox>Genre 5</Checkbox>
+              <Checkbox className = 'text'>Genre 1</Checkbox>
+              <Checkbox className = 'text'>Genre 2</Checkbox>
+              <Checkbox className = 'text'>Genre 3</Checkbox>
+              <Checkbox className = 'text'>Genre 4</Checkbox>
+              <Checkbox className = 'text'>Genre 5</Checkbox>
           </FormGroup>
 
           <FormGroup>
