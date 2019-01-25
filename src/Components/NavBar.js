@@ -39,7 +39,7 @@ export default class NaviBar extends Component {
 			<Navbar inverse collapseOnSelect>
 			  <Navbar.Header>
 			    <Navbar.Brand>
-			      <a href="/">Arcade GRASS</a>
+			      <a href="/">Knights Arcade</a>
 			    </Navbar.Brand>
 			    <Navbar.Toggle />
 			  </Navbar.Header>
@@ -48,14 +48,14 @@ export default class NaviBar extends Component {
 			      <NavItem eventKey={1} href="Games">
 			        Games
 			      </NavItem>
-			      <NavItem eventKey={2} href="About">
-			        About
+			      <NavItem href="MyProfile">
+			        My Profile
 			      </NavItem>
 			      <NavItem eventKey={3} href="Submit">
 			        Submit
 			      </NavItem>
-			      <NavItem href="MyProfile">
-			        My Profile
+			      <NavItem eventKey={2} href="About">
+			        About
 			      </NavItem>
 			      {/*<NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
 			        <MenuItem eventKey={3.1}>Action</MenuItem>

@@ -12,10 +12,10 @@ class Home extends Component {
         <Jumbotron className ="Jumbo">
           <h1 className = "text"> Knights Arcade</h1>
           <p className = "text">
-            We might need a new name
+            Play / Share / Showcase
           </p>
           <p>
-            <Button bsStyle="primary">Button</Button>
+            <Button bsStyle="primary">Find An Arcade Machine</Button>
           </p>
         </Jumbotron>
 
