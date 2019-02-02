@@ -36,7 +36,7 @@ export default class NaviBar extends Component {
 	render(props) {
 		return (
 			
-			<Navbar inverse collapseOnSelect>
+			<Navbar className="nav-bar" inverse collapseOnSelect>
 			  <Navbar.Header>
 			    <Navbar.Brand>
 			      <a href="/">Knights Arcade</a>

@@ -1,3 +1,8 @@
-/*.text {
-  color: White
-}*/
+.col{
+	padding: 0px;
+	margin: 0px;
+}
+
+.panel{
+	margin: 0px;
+}
