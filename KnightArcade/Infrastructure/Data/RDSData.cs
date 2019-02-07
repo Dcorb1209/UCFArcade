@@ -41,12 +41,21 @@ namespace KnightArcade.Infrastructure.Data
             Games myGame = knightsContext.Games.Find(games.GameId);
             knightsContext.Games.Remove(myGame);
 
-            if (games.GameBanner != null) { myGame.GameBanner = games.GameBanner; }
             if (games.GameControls != null) { myGame.GameControls = games.GameControls; }
-            if (games.GameCreatorName != null) { myGame.GameCreatorName = games.GameCreatorName; }
+            if (games.GameCreatorname != null) { myGame.GameCreatorname = games.GameCreatorname; }
             if (games.GameDescription != null) { myGame.GameDescription = games.GameDescription; }
             if (games.GameGenres != null) { myGame.GameGenres = games.GameGenres; }
+            if (games.GameImage0 != null) { myGame.GameImage0 = games.GameImage0; }
+            if (games.GameImage1 != null) { myGame.GameImage1 = games.GameImage1; }
+            if (games.GameImage2 != null) { myGame.GameImage2 = games.GameImage2; }
+            if (games.GameImage3 != null) { myGame.GameImage3 = games.GameImage3; }
+            if (games.GameImage4 != null) { myGame.GameImage4 = games.GameImage4; }
             if (games.GameName != null) { myGame.GameName = games.GameName; }
+            if (games.GamePath != null) { myGame.GamePath = games.GamePath; }
+            if (games.GameReviewdate != null) { myGame.GameReviewdate = games.GameReviewdate; }
+            if (games.GameStatus != null) { myGame.GameStatus = games.GameStatus; }
+            if (games.GameVideolink != null) { myGame.GameVideolink = games.GameVideolink; }
+            myGame.GameOnarcade = games.GameOnarcade;
 
             knightsContext.Games.Add(myGame);
             knightsContext.SaveChanges();
