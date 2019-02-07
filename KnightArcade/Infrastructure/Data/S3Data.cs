@@ -174,7 +174,7 @@ namespace KnightArcade.Infrastructure.Data
                     Key = folderPath + "/" + objectName
                 };
 
-                CancellationToken cancellationToken = new CancellationToken();
+                //CancellationToken cancellationToken = new CancellationToken();
 
                 using (GetObjectResponse response = await _s3Client.GetObjectAsync(request))
                 using (Stream responseStream = response.ResponseStream)
@@ -243,9 +243,9 @@ namespace KnightArcade.Infrastructure.Data
             }
         }
 
-        public async Task<object> GetFolderFromS3BucketAsync(string bucketName, string folderName)
-        {
-            return false;
-        }
+        //public async Task<object> GetFolderFromS3BucketAsync(string bucketName, string folderName)
+        //{
+        //    return false;
+        //}
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using KnightArcade.Infrastructure.Data;
 using KnightArcade.Infrastructure.Data.Interface;
 using KnightArcade.Infrastructure.Logic;
+using KnightArcade.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -18,17 +19,19 @@ namespace KnightArcade.Controllers
         private readonly S3Logic _s3;
         private readonly WebMessageLogic _webMessage;
         private readonly AutomatedTestingLogic _automated;
+        private readonly RDSLogic _rdsLogic;
         private readonly ILogger<InfrastructureController> _logger;
         private readonly IS3Data _s3Data;
 
         public InfrastructureController(S3Logic s3, WebMessageLogic webMessage, AutomatedTestingLogic automated,
-            ILogger<InfrastructureController> logger, IS3Data s3Data)
+            ILogger<InfrastructureController> logger, IS3Data s3Data, RDSLogic rdsLogic)
         {
             _webMessage = webMessage;
             _automated = automated;
             _logger = logger;
             _s3 = s3;
             _s3Data = s3Data;
+            _rdsLogic = rdsLogic;
         }
 
         [HttpGet("info")]
@@ -45,7 +48,7 @@ namespace KnightArcade.Controllers
             }
         }
 
-        [HttpGet("allgameslist")]
+        [HttpGet("s3/allgameslist")]
         public IActionResult GetAllGamesList()
         {
             try
@@ -59,13 +62,12 @@ namespace KnightArcade.Controllers
             }
         }
 
-        [HttpGet("game")]
+        [HttpGet("s3/game")]
         public async Task<IActionResult> GetGame(string gameName)
         {
             try
             {
-                object x = await _s3Data.ReadObjectDataAsync("arcadegrassproject", "arcade_games", "AlienDefense5(Final).zip");
-                //return Ok("Arcade GRASS: Get Game " + gameName);
+                object x = await _s3Data.ReadObjectDataAsync("arcadegrassproject", "arcade_games", gameName);
                 return Ok(x);
             }
             catch (Exception e)
@@ -75,7 +77,7 @@ namespace KnightArcade.Controllers
             }
         }
 
-        [HttpGet("gamereport")]
+        [HttpGet("s3/gamereport")]
         public IActionResult GetGameReport(string gameName)
         {
             try
@@ -89,12 +91,12 @@ namespace KnightArcade.Controllers
             }
         }
 
-        [HttpPost("game")]
-        public IActionResult PostGameForTesting([FromBody] object gameFile)
+        [HttpPost("s3/gamereport")]
+        public IActionResult PostGameReportToS3([FromBody] object gameReport)
         {
             try
             {
-                return Ok("Arcade GRASS: Post Game For Testing.");
+                return Ok("Arcade GRASS: Post Game Report To S3.");
             }
             catch (Exception e)
             {
@@ -103,12 +105,69 @@ namespace KnightArcade.Controllers
             }
         }
 
-        [HttpPost("gamereport")]
-        public IActionResult PostGameReportToS3([FromBody] object gameReport)
+        [HttpGet("rds/gamesdata")]
+        public IActionResult GetGamesData(int gameId)
         {
             try
             {
-                return Ok("Arcade GRASS: Post Game Report To S3.");
+                return Ok(_rdsLogic.GetGames(gameId));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message, e);
+                return StatusCode(500);
+            }
+        }
+
+        [HttpPost("rds/gamesdata")]
+        public IActionResult PostGamesData([FromBody] Games games)
+        {
+            try
+            {
+                return Ok(_rdsLogic.PostGames(games));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message, e);
+                return StatusCode(500);
+            }
+        }
+
+        [HttpPut("rds/gamesdata")]
+        public IActionResult PutGamesData([FromBody] Games games)
+        {
+            try
+            {
+                return Ok(_rdsLogic.PutGames(games));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message, e);
+                return StatusCode(500);
+            }
+        }
+
+        [HttpDelete("rds/gamesdata")]
+        public IActionResult DeleteGamesData(int userId)
+        {
+            try
+            {
+                return Ok(_rdsLogic.DeleteGames(userId));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message, e);
+                return StatusCode(500);
+            }
+        }
+
+        ///
+        [HttpPost("game")]
+        public IActionResult PostGameForTesting([FromBody] object gameFile)
+        {
+            try
+            {
+                return Ok("Arcade GRASS: Post Game For Testing.");
             }
             catch (Exception e)
             {
