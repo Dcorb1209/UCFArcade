@@ -3,6 +3,10 @@ import './App.css';
 import NaviBar from './Components/NavBar';
 import { Jumbotron, Button, Carousel, Grid, Row, Col } from 'react-bootstrap';
 import GameSlides from './Components/GameSlides';
+import Amplify from 'aws-amplify';
+import awsmobile from './aws-exports';
+import { withAuthenticator } from 'aws-amplify-react';
+Amplify.configure(awsmobile);
 
 class Home extends Component {
   render() {
@@ -25,4 +29,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withAuthenticator(Home, true);
