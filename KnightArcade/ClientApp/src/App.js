@@ -6,6 +6,7 @@ import MyProfile from './MyProfile';
 import Games from './Games';
 import About from './About';
 import Submit from './Submit';
+import GameAdvert from './GameAdvert';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="/Games" component={Games}/>
           <Route path="/About" component={About}/>
           <Route path="/Submit" component={Submit}/>
+          <Route path="/GameAdvert" component={GameAdvert}/>
         </Switch>
       </BrowserRouter>
     )
