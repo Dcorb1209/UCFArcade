@@ -40,8 +40,8 @@ namespace KnightArcade.Models
                     .HasColumnName("game_controls")
                     .HasColumnType("text");
 
-                entity.Property(e => e.GameCreator)
-                    .HasColumnName("game_creator")
+                entity.Property(e => e.GameCreatorId)
+                    .HasColumnName("game_creator_id")
                     .HasColumnType("int(11)");
 
                 entity.Property(e => e.GameCreatorname)
@@ -95,7 +95,7 @@ namespace KnightArcade.Models
                     .HasColumnType("varchar(255)");
 
                 entity.Property(e => e.GameReviewdate)
-                    .HasColumnName("game_reviewdate")
+                    .HasColumnName("game_reviewdate_utc")
                     .HasColumnType("datetime");
 
                 entity.Property(e => e.GameStatus)
@@ -104,7 +104,7 @@ namespace KnightArcade.Models
                     .HasColumnType("varchar(1)");
 
                 entity.Property(e => e.GameSubmissiondate)
-                    .HasColumnName("game_submissiondate")
+                    .HasColumnName("game_submissiondate_utc")
                     .HasColumnType("datetime");
 
                 entity.Property(e => e.GameVideolink)

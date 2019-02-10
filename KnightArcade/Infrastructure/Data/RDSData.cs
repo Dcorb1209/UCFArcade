@@ -26,6 +26,14 @@ namespace KnightArcade.Infrastructure.Data
             return myGame;
         }
 
+        public List<Games> GetAllGames()
+        {
+            DbContextOptionsBuilder<KnightsArcadeContext> bootUp = new DbContextOptionsBuilder<KnightsArcadeContext>();            bootUp.UseMySql(_configuration.GetConnectionString("KnightsArcadeDb"));            KnightsArcadeContext knightsContext = new KnightsArcadeContext(bootUp.Options);
+
+            List<Games> myGames = knightsContext.Games.ToList();
+            return myGames;
+        }
+
         public void PostGames(Games games)
         {
             DbContextOptionsBuilder<KnightsArcadeContext> bootUp = new DbContextOptionsBuilder<KnightsArcadeContext>();            bootUp.UseMySql(_configuration.GetConnectionString("KnightsArcadeDb"));            KnightsArcadeContext knightsContext = new KnightsArcadeContext(bootUp.Options);

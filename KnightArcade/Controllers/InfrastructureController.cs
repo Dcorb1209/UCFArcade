@@ -44,7 +44,7 @@ namespace KnightArcade.Controllers
             catch (Exception e)
             {
                 _logger.LogError(e.Message, e);
-                return StatusCode(500);
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -58,7 +58,7 @@ namespace KnightArcade.Controllers
             catch (Exception e)
             {
                 _logger.LogError(e.Message, e);
-                return StatusCode(500);
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -73,7 +73,7 @@ namespace KnightArcade.Controllers
             catch (Exception e)
             {
                 _logger.LogError(e.Message, e);
-                return StatusCode(500);
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -87,7 +87,7 @@ namespace KnightArcade.Controllers
             catch (Exception e)
             {
                 _logger.LogError(e.Message, e);
-                return StatusCode(500);
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -101,7 +101,7 @@ namespace KnightArcade.Controllers
             catch (Exception e)
             {
                 _logger.LogError(e.Message, e);
-                return StatusCode(500);
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -115,7 +115,21 @@ namespace KnightArcade.Controllers
             catch (Exception e)
             {
                 _logger.LogError(e.Message, e);
-                return StatusCode(500);
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        [HttpGet("rds/allgamesdata")]
+        public IActionResult GetAllGamesData()
+        {
+            try
+            {
+                return Ok(_rdsLogic.GetAllGames());
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message, e);
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -129,7 +143,7 @@ namespace KnightArcade.Controllers
             catch (Exception e)
             {
                 _logger.LogError(e.Message, e);
-                return StatusCode(500);
+                return StatusCode(500, e.Message);
             }
         }
 
@@ -143,21 +157,21 @@ namespace KnightArcade.Controllers
             catch (Exception e)
             {
                 _logger.LogError(e.Message, e);
-                return StatusCode(500);
+                return StatusCode(500, e.Message);
             }
         }
 
         [HttpDelete("rds/gamesdata")]
-        public IActionResult DeleteGamesData(int userId)
+        public IActionResult DeleteGamesData(int gameId)
         {
             try
             {
-                return Ok(_rdsLogic.DeleteGames(userId));
+                return Ok(_rdsLogic.DeleteGames(gameId));
             }
             catch (Exception e)
             {
                 _logger.LogError(e.Message, e);
-                return StatusCode(500);
+                return StatusCode(500, e.Message);
             }
         }
 
