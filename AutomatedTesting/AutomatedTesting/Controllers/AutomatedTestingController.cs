@@ -9,7 +9,7 @@ namespace AutomatedTesting.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class AutomatedTestingController : Controller
+    public class AutomatedTestingController : ControllerBase
     {
         private readonly ILogger<AutomatedTestingController> _logger;
 

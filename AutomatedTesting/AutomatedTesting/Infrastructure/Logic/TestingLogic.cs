@@ -14,5 +14,21 @@ namespace AutomatedTesting.Infrastructure.Logic
         {
             _logger = logger;
         }
+
+        public void Start()
+        {
+            //get s3 and download zip file, return file location
+
+            //unzip file and returned unzip location
+
+            //start .exe, check to see if it started
+
+            //Thread.Sleep(5000);
+
+            //stop .exe, check to see if it stopped
+
+            //Thread.Sleep(300);
+
+        }
     }
 }
