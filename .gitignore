@@ -15,3 +15,4 @@ yarn-debug.log*
 yarn-error.log*
 /KnightArcade/ClientApp/node_modules/.cache
 /KnightArcade/ClientApp/node_modules/.cache/babel-loader
+/AutomatedTesting/AutomatedTesting/bin/Debug/netcoreapp2.1/GamesFolder/AlienDefense5(Final)

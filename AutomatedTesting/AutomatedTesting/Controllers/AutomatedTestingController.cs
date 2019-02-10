@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutomatedTesting.Infrastructure.Logic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -12,19 +13,28 @@ namespace AutomatedTesting.Controllers
     public class AutomatedTestingController : ControllerBase
     {
         private readonly ILogger<AutomatedTestingController> _logger;
+        private readonly TestingLogic _testingLogic;
 
-        public AutomatedTestingController(ILogger<AutomatedTestingController> logger)
+        public AutomatedTestingController(ILogger<AutomatedTestingController> logger, TestingLogic testingLogic)
         {
             _logger = logger;
+            _testingLogic = testingLogic;
+
         }
 
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok("Hello");
+        }
 
         [HttpGet("basictest")]
-        public IActionResult PostAutomatedTest([FromBody] object game)
+        public IActionResult PostAutomatedTest()
+
         {
             try
             {
-                string x = AppDomain.CurrentDomain.BaseDirectory;
+                _testingLogic.Start();
                 return Ok();
             }
             catch (Exception e)

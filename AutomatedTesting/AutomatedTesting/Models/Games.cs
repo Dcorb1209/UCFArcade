@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace KnightArcade.Models
+namespace AutomatedTesting.Models
 {
     public class Games
     {
@@ -24,4 +26,5 @@ namespace KnightArcade.Models
         public DateTime GameSubmissiondate { get; set; }
         public DateTime? GameReviewdate { get; set; }
     }
+
 }
