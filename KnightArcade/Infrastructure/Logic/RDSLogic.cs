@@ -73,5 +73,18 @@ namespace KnightArcade.Infrastructure.Logic
                 return false;
             }
         }
+
+        public List<Games> GetAllGames()
+        {
+            try
+            {
+                return _rdsData.GetAllGames();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message, e);
+                return null;
+            }
+        }
     }
 }

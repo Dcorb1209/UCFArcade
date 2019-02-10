@@ -7,7 +7,7 @@ namespace KnightArcade.Models
     {
         public int GameId { get; set; }
         public string GameName { get; set; }
-        public int GameCreator { get; set; }
+        public int GameCreatorId { get; set; }
         public string GameCreatorname { get; set; }
         public string GameDescription { get; set; }
         public string GameControls { get; set; }
