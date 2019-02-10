@@ -7,7 +7,6 @@ namespace AutomatedTesting.Infrastructure.Data.Infrastructure
 {
     public interface IS3Data
     {
-        Task ListingObjectsAsync(string bucketName);
-        Task<object> ReadObjectDataAsync(string key);
+        Task<string> ReadObjectDataAsync(string key);
     }
 }

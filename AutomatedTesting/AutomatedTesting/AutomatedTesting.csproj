@@ -5,8 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Content Include="bin\Debug\netcoreapp2.1\AutomatedTesting.deps.json" />
+    <Content Include="bin\Debug\netcoreapp2.1\AutomatedTesting.runtimeconfig.dev.json" />
+    <Content Include="bin\Debug\netcoreapp2.1\AutomatedTesting.runtimeconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\netcoreapp2.1\GamesFolder\" />
     <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netcoreapp2.1\AutomatedTesting.dll" />
+    <None Include="bin\Debug\netcoreapp2.1\AutomatedTesting.pdb" />
   </ItemGroup>
 
   <ItemGroup>

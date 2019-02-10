@@ -29,14 +29,14 @@ namespace AutomatedTesting.Infrastructure.Data
                 config.GetSection("AWSCredentials:AWSSecretKey").Value, bucketRegion);
         }
 
-        public async Task<object> ReadObjectDataAsync(string key)
+        public async Task<string> ReadObjectDataAsync(string key)
         {
-            string responseBody = "";
+            string filePath = "";
             try
             {
                 GetObjectRequest request = new GetObjectRequest
                 {
-                    BucketName = "knightarcade",
+                    BucketName = "arcadegrassproject",
                     Key = key
                 };
 
@@ -54,60 +54,25 @@ namespace AutomatedTesting.Infrastructure.Data
                     //Saves to current directory
                     string tempFileName = System.IO.Path.GetTempFileName();
                     await response.WriteResponseStreamToFileAsync(tempFileName, true, cancellationToken);
-                    ZipFile.ExtractToDirectory(tempFileName, AppDomain.CurrentDomain.BaseDirectory);
-                    
+                    Guid guid;
+                    guid = Guid.NewGuid();
+                    filePath = AppDomain.CurrentDomain.BaseDirectory + "\\GamesFolder" + guid.ToString();
+
+                    ZipFile.ExtractToDirectory(tempFileName, filePath);
                 }
 
-                return responseBody;
+                return filePath;
             }
             catch (AmazonS3Exception e)
             {
                 _logger.LogError(e.Message, e);
-                return false;
+                return null;
             }
             catch (Exception e)
             {
                 _logger.LogError(e.Message, e);
-                return false;
+                return null;
             }
         }
-
-        public async Task ListingObjectsAsync(string bucketName)
-        {
-            try
-            {
-                ListObjectsV2Request request = new ListObjectsV2Request
-                {
-                    BucketName = bucketName,
-                    MaxKeys = 10
-                };
-                ListObjectsV2Response response;
-                do
-                {
-                    response = await _s3Client.ListObjectsV2Async(request);
-
-                    // Process the response.
-                    foreach (S3Object entry in response.S3Objects)
-                    {
-                        Console.WriteLine("key = {0} size = {1}",
-                            entry.Key, entry.Size);
-                    }
-                    Console.WriteLine("Next Continuation Token: {0}", response.NextContinuationToken);
-                    request.ContinuationToken = response.NextContinuationToken;
-                } while (response.IsTruncated);
-            }
-            catch (AmazonS3Exception amazonS3Exception)
-            {
-                Console.WriteLine("S3 error occurred. Exception: " + amazonS3Exception.ToString());
-                Console.ReadKey();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception: " + e.ToString());
-                Console.ReadKey();
-            }
-        }
-
     }
-
 }

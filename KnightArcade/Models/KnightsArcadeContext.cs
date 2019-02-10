@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace KnightArcade.Models
 {
-    public partial class KnightsArcadeContext : DbContext
+    public class KnightsArcadeContext : DbContext
     {
         public KnightsArcadeContext()
         {
