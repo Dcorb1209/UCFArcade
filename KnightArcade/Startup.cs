@@ -25,9 +25,9 @@ namespace KnightArcade
         {
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddScoped<IS3Data, S3Data>().AddScoped<IWebMessageData, WebMessageData>()
+            services.AddScoped<IWebMessageData, WebMessageData>()
                 .AddScoped<IAutomatedTestingData, AutomatedTestingData>().AddScoped<IRDSData, RDSData>();
-            services.AddScoped<AutomatedTestingLogic>().AddScoped<S3Logic>().AddScoped<WebMessageLogic>()
+            services.AddScoped<AutomatedTestingLogic>().AddScoped<WebMessageLogic>()
                 .AddScoped<RDSLogic>();
 
             // In production, the React files will be served from this directory

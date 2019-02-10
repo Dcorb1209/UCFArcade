@@ -2,18 +2,16 @@
 using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
-using KnightArcade.Infrastructure.Data.Interface;
+using AutomatedTesting.Infrastructure.Data.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 
-namespace KnightArcade.Infrastructure.Data
+namespace AutomatedTesting.Infrastructure.Data
 {
     public class S3Data : IS3Data
     {
@@ -25,7 +23,7 @@ namespace KnightArcade.Infrastructure.Data
         public S3Data(ILogger<S3Data> logger, IConfiguration config)
         {
             _logger = logger;
-            _s3Client = new AmazonS3Client(config.GetSection("AWSCredentials:AWSAccessKey").Value, 
+            _s3Client = new AmazonS3Client(config.GetSection("AWSCredentials:AWSAccessKey").Value,
                 config.GetSection("AWSCredentials:AWSSecretKey").Value, bucketRegion);
         }
 
@@ -33,7 +31,7 @@ namespace KnightArcade.Infrastructure.Data
         {
             try
             {
-                if(await AmazonS3Util.DoesS3BucketExistAsync(_s3Client, bucketName) == false)
+                if (await AmazonS3Util.DoesS3BucketExistAsync(_s3Client, bucketName) == false)
                 {
                     PutBucketRequest putBucketRequest = new PutBucketRequest()
                     {
@@ -46,12 +44,12 @@ namespace KnightArcade.Infrastructure.Data
 
                 return true;
             }
-            catch(AmazonS3Exception e)
+            catch (AmazonS3Exception e)
             {
                 _logger.LogError(e.Message, e);
                 return false;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 _logger.LogError(e.Message, e);
                 return false;
@@ -108,7 +106,7 @@ namespace KnightArcade.Infrastructure.Data
                 };
 
                 ListObjectsResponse itemsResponse = _s3Client.ListObjectsAsync(itemsRequest).Result;
-                foreach(S3Object s in itemsResponse.S3Objects)
+                foreach (S3Object s in itemsResponse.S3Objects)
                 {
                     deleteItems.AddKey(s.Key);
                 }
@@ -142,7 +140,7 @@ namespace KnightArcade.Infrastructure.Data
                 ListObjectsResponse itemsResponse = _s3Client.ListObjectsAsync(itemsRequest).Result;
                 foreach (S3Object s in itemsResponse.S3Objects)
                 {
-                    if(s.Key.Equals(objectName))
+                    if (s.Key.Equals(objectName))
                     {
                         deleteItems.AddKey(s.Key);
                     }
@@ -243,9 +241,6 @@ namespace KnightArcade.Infrastructure.Data
             }
         }
 
-        //public async Task<object> GetFolderFromS3BucketAsync(string bucketName, string folderName)
-        //{
-        //    return false;
-        //}
     }
+
 }
