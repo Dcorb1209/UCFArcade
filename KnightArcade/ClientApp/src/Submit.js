@@ -77,7 +77,35 @@ class Submit extends Component {
           </FormGroup>
 
           <FormGroup>
-            <ControlLabel className = 'text'>Banner Image</ControlLabel>
+            <ControlLabel className = 'text'>Default Display Image</ControlLabel>
+            <FormControl
+              type="file"
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <ControlLabel className = 'text'>Slideshow Image 1 (Optional)</ControlLabel>
+            <FormControl
+              type="file"
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <ControlLabel className = 'text'>Slideshow Image 2 (Optional)</ControlLabel>
+            <FormControl
+              type="file"
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <ControlLabel className = 'text'>Slideshow Image 3 (Optional)</ControlLabel>
+            <FormControl
+              type="file"
+            />
+          </FormGroup>
+
+          <FormGroup>
+            <ControlLabel className = 'text'>Slideshow Image 4 (Optional)</ControlLabel>
             <FormControl
               type="file"
             />
