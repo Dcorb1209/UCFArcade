@@ -7,6 +7,8 @@ using Microsoft.Extensions.Logging;
 
 namespace AutomatedTesting.Controllers
 {
+    [Route("api/v1/[controller]")]
+    [ApiController]
     public class AutomatedTestingController : Controller
     {
         private readonly ILogger<AutomatedTestingController> _logger;
@@ -16,11 +18,13 @@ namespace AutomatedTesting.Controllers
             _logger = logger;
         }
 
+
         [HttpGet("basictest")]
-        public IActionResult PostAutomatedTest()
+        public IActionResult PostAutomatedTest([FromBody] object game)
         {
             try
             {
+                string x = AppDomain.CurrentDomain.BaseDirectory;
                 return Ok();
             }
             catch (Exception e)

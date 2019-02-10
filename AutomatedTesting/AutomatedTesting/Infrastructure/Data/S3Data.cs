@@ -8,7 +8,9 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomatedTesting.Infrastructure.Data
@@ -27,152 +29,18 @@ namespace AutomatedTesting.Infrastructure.Data
                 config.GetSection("AWSCredentials:AWSSecretKey").Value, bucketRegion);
         }
 
-        public async Task<bool> CreateS3BucketAsync(string bucketName)
-        {
-            try
-            {
-                if (await AmazonS3Util.DoesS3BucketExistAsync(_s3Client, bucketName) == false)
-                {
-                    PutBucketRequest putBucketRequest = new PutBucketRequest()
-                    {
-                        BucketName = bucketName,
-                        UseClientRegion = true
-                    };
-
-                    PutBucketResponse response = await _s3Client.PutBucketAsync(putBucketRequest);
-                }
-
-                return true;
-            }
-            catch (AmazonS3Exception e)
-            {
-                _logger.LogError(e.Message, e);
-                return false;
-            }
-            catch (Exception e)
-            {
-                _logger.LogError(e.Message, e);
-                return false;
-            }
-        }
-
-        public async Task WritingAnObjectAsync(string bucketName, string folderPath, string objectName)
-        {
-            try
-            {
-                // 1. Put object-specify only key name for the new object.
-                var putRequest1 = new PutObjectRequest
-                {
-                    BucketName = bucketName,
-                    Key = folderPath + "/" + objectName,
-                    ContentBody = "sample text"
-                };
-
-                PutObjectResponse response1 = await _s3Client.PutObjectAsync(putRequest1);
-
-                // 2. Put the object-set ContentType and add metadata.
-                var putRequest2 = new PutObjectRequest
-                {
-                    BucketName = bucketName,
-                    Key = objectName,
-                    FilePath = folderPath,
-                    ContentType = "text/plain"
-                };
-                putRequest2.Metadata.Add("x-amz-meta-title", "someTitle");
-            }
-            catch (AmazonS3Exception e)
-            {
-                Console.WriteLine(
-                        "Error encountered ***. Message:'{0}' when writing an object"
-                        , e.Message);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(
-                    "Unknown encountered on server. Message:'{0}' when writing an object"
-                    , e.Message);
-            }
-        }
-
-        public async Task<bool> DeleteS3BucketFolderAsync(string bucketName, string folderPath)
-        {
-            try
-            {
-                DeleteObjectsRequest deleteItems = new DeleteObjectsRequest();
-                ListObjectsRequest itemsRequest = new ListObjectsRequest
-                {
-                    BucketName = bucketName,
-                    Prefix = folderPath
-                };
-
-                ListObjectsResponse itemsResponse = _s3Client.ListObjectsAsync(itemsRequest).Result;
-                foreach (S3Object s in itemsResponse.S3Objects)
-                {
-                    deleteItems.AddKey(s.Key);
-                }
-                deleteItems.BucketName = bucketName;
-                await _s3Client.DeleteObjectsAsync(deleteItems);
-                return true;
-            }
-            catch (AmazonS3Exception e)
-            {
-                _logger.LogError(e.Message, e);
-                return false;
-            }
-            catch (Exception e)
-            {
-                _logger.LogError(e.Message, e);
-                return false;
-            }
-        }
-
-        public async Task<bool> DeleteS3BucketFolderObjectAsync(string bucketName, string folderPath, string objectName)
-        {
-            try
-            {
-                DeleteObjectsRequest deleteItems = new DeleteObjectsRequest();
-                ListObjectsRequest itemsRequest = new ListObjectsRequest
-                {
-                    BucketName = bucketName,
-                    Prefix = folderPath
-                };
-
-                ListObjectsResponse itemsResponse = _s3Client.ListObjectsAsync(itemsRequest).Result;
-                foreach (S3Object s in itemsResponse.S3Objects)
-                {
-                    if (s.Key.Equals(objectName))
-                    {
-                        deleteItems.AddKey(s.Key);
-                    }
-                }
-                deleteItems.BucketName = bucketName;
-                await _s3Client.DeleteObjectsAsync(deleteItems);
-                return true;
-            }
-            catch (AmazonS3Exception e)
-            {
-                _logger.LogError(e.Message, e);
-                return false;
-            }
-            catch (Exception e)
-            {
-                _logger.LogError(e.Message, e);
-                return false;
-            }
-        }
-
-        public async Task<object> ReadObjectDataAsync(string bucketName, string folderPath, string objectName)
+        public async Task<object> ReadObjectDataAsync(string key)
         {
             string responseBody = "";
             try
             {
                 GetObjectRequest request = new GetObjectRequest
                 {
-                    BucketName = bucketName,
-                    Key = folderPath + "/" + objectName
+                    BucketName = "knightarcade",
+                    Key = key
                 };
 
-                //CancellationToken cancellationToken = new CancellationToken();
+                CancellationToken cancellationToken = new CancellationToken();
 
                 using (GetObjectResponse response = await _s3Client.GetObjectAsync(request))
                 using (Stream responseStream = response.ResponseStream)
@@ -183,13 +51,12 @@ namespace AutomatedTesting.Infrastructure.Data
                     Console.WriteLine("Object metadata, Title: {0}", title);
                     Console.WriteLine("Content type: {0}", contentType);
 
-                    /* Saves to current directory
+                    //Saves to current directory
                     string tempFileName = System.IO.Path.GetTempFileName();
                     await response.WriteResponseStreamToFileAsync(tempFileName, true, cancellationToken);
                     ZipFile.ExtractToDirectory(tempFileName, AppDomain.CurrentDomain.BaseDirectory);
-                    */
+                    
                 }
-
 
                 return responseBody;
             }
