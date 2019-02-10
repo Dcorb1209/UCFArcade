@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AutomatedTesting.Infrastructure
+namespace AutomatedTesting.Infrastructure.Logic
 {
     public class TestingLogic
     {
@@ -14,7 +14,5 @@ namespace AutomatedTesting.Infrastructure
         {
             _logger = logger;
         }
-
-
     }
 }
