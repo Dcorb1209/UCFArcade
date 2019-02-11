@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AutomatedTesting",
+    "\\AutomatedTesting\\AutomatedTesting",
+    "\\AutomatedTesting\\AutomatedTesting\\Infrastructure",
+    "\\AutomatedTesting\\AutomatedTesting\\Infrastructure\\Logic"
+  ],
+  "SelectedNode": "\\AutomatedTesting\\AutomatedTesting\\Infrastructure\\Logic\\TestingLogic.cs",
+  "PreviewInSolutionExplorer": false
+}
