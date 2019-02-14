@@ -12,3 +12,17 @@ C:\Users\kre3e\source\repos\GitKnightArcade\AutomatedTesting\AutomatedTesting\ob
 C:\Users\kre3e\source\repos\GitKnightArcade\AutomatedTesting\AutomatedTesting\bin\Debug\netcoreapp2.1\AutomatedTesting.pdb
 C:\Users\kre3e\source\repos\GitKnightArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.dll
 C:\Users\kre3e\source\repos\GitKnightArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.pdb
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\bin\Debug\netcoreapp2.1\AutomatedTesting.deps.json
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\bin\Debug\netcoreapp2.1\AutomatedTesting.runtimeconfig.json
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\bin\Debug\netcoreapp2.1\AutomatedTesting.runtimeconfig.dev.json
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\bin\Debug\netcoreapp2.1\AutomatedTesting.dll
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\bin\Debug\netcoreapp2.1\AutomatedTesting.pdb
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.csprojAssemblyReference.cache
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.csproj.CoreCompileInputs.cache
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.RazorAssemblyInfo.cache
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.RazorAssemblyInfo.cs
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.AssemblyInfoInputs.cache
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.AssemblyInfo.cs
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.RazorTargetAssemblyInfo.cache
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.dll
+C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.pdb
