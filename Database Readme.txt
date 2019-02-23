@@ -20,7 +20,6 @@ game_submissiondate_utc - DATETIME - The date and time the game was submitted in
 game_reviewdate_utc - DATETIME - The date and time the game was reviewed in utc time
 
 Table - submissions
-submission_id - int(11)(pk) - Database submissions ID
 creator_id - int(11) - Creators ID
 game_id - int(11) - Database game ID
 submission_name - varchar(255) - Game name
