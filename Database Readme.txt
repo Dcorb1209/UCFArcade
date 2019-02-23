@@ -21,7 +21,7 @@ game_reviewdate_utc - DATETIME - The date and time the game was reviewed in utc 
 
 Table - submissions
 submission_id - int(11)(pk) - Database submissions ID
-user_id - int(11) - Creators ID
+creator_id - int(11) - Creators ID
 game_id - int(11) - Database game ID
 submission_name - varchar(255) - Game name
 submission_status - varchar(1) - Status flag of the game (see game_status in games table)
