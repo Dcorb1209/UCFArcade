@@ -1,36 +1,39 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem, Modal, Button, FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Modal, Button, FormGroup, FormControl, ControlLabel, NavDropdown, MenuItem} from 'react-bootstrap';
 import './NavBar.css';
+import { Auth } from 'aws-amplify';
 
 export default class NaviBar extends Component {
 	constructor(props) {
 		super(props);
 
-		this.handleLoginShow = this.handleLoginShow.bind(this);
-    	this.handleLoginClose = this.handleLoginClose.bind(this);
-    	this.handleSignupShow = this.handleSignupShow.bind(this);
-    	this.handleSignupClose = this.handleSignupClose.bind(this);
+		this.handleLogOut = this.handleLogOut.bind(this);
 
 	    this.state = {
-	      loginShow: false,
-	      signupShow: false
+	      loggedIn: false,
+	      username: ""
 	    };
 	}
 
-	handleLoginClose() {
-    	this.setState({ loginShow: false });
-  	}
+	componentDidMount() {
 
-  	handleLoginShow() {
-    	this.setState({ loginShow: true });
-  	}
+		Auth.currentAuthenticatedUser({
+		    bypassCache: false
+		}).then(user => {
+			this.setState({ loggedIn: true });
+			this.setState({ username: user.username});
+		})
+		.catch(err => {
+			console.log(err);
+			this.setState({ loggedIn: false });
+		});
 
-  	handleSignupClose() {
-    	this.setState({ signupShow: false });
-  	}
+	}
 
-  	handleSignupShow() {
-    	this.setState({ signupShow: true });
+	handleLogOut() {
+    	Auth.signOut()
+		    .then(data => console.log(data))
+		    .catch(err => console.log(err));
   	}
 
 	render(props) {
@@ -48,114 +51,27 @@ export default class NaviBar extends Component {
 			      <NavItem eventKey={1} href="Games">
 			        Games
 			      </NavItem>
-			      <NavItem href="MyProfile">
-			        My Profile
-			      </NavItem>
-			      <NavItem eventKey={3} href="Submit">
-			        Submit
-			      </NavItem>
 			      <NavItem eventKey={2} href="About">
 			        About
 			      </NavItem>
-			      {/*<NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-			        <MenuItem eventKey={3.1}>Action</MenuItem>
-			        <MenuItem eventKey={3.2}>Another action</MenuItem>
-			        <MenuItem eventKey={3.3}>Something else here</MenuItem>
-			        <MenuItem divider />
-			        <MenuItem eventKey={3.3}>Separated link</MenuItem>
-			      </NavDropdown>*/}
 			    </Nav>
 			    <Nav pullRight>
-			      <NavItem onClick={this.handleSignupShow} eventKey={1} href="#">
-			        Sign Up
-			      </NavItem>
+			    	{this.state.loggedIn ?
 
-			      <Modal className='NavBar-modal' bsSize="small" show={this.state.signupShow} onHide={this.handleSignupClose}>
-			          <Modal.Header closeButton>
-			            <Modal.Title>Sign Up</Modal.Title>
-			          </Modal.Header>
-			          <Modal.Body>
-			            <form>
-			            	<FormGroup>
-						      <ControlLabel>First Name</ControlLabel>
-						      <FormControl
-						      	type="text"
-						      />
-						    </FormGroup>
-						    <FormGroup>
-						      <ControlLabel>Last Name</ControlLabel>
-						      <FormControl
-						      	type="text"
-						      />
-						    </FormGroup>
-						    <FormGroup>
-						      <ControlLabel>Display Name</ControlLabel>
-						      <FormControl
-						      	type="text"
-						      />
-						    </FormGroup>
-						    <FormGroup>
-						      <ControlLabel>Email (Login)</ControlLabel>
-						      <FormControl
-						      	type="text"
-						      />
-						    </FormGroup>
-						    <FormGroup>
-						      <ControlLabel>Password</ControlLabel>
-						      <FormControl
-						      	type="password"
-						      />
-						    </FormGroup>
-						    <FormGroup>
-						      <ControlLabel>Confirm Password</ControlLabel>
-						      <FormControl
-						      	type="password"
-						      />
-						    </FormGroup>
-						    <FormGroup>
-						      <ControlLabel>Major</ControlLabel>
-						      <FormControl
-						      	type="text"
-						      />
-						    </FormGroup>
-			            </form>
-			          </Modal.Body>
-			          <Modal.Footer>
-			            <Button bsStyle="primary" onClick={this.handleSignupClose}>Submit</Button>
-			          </Modal.Footer>
-			       </Modal>
+			    		<NavDropdown eventKey={3} title={this.state.username} id="basic-nav-dropdown">
+					        <MenuItem eventKey={3.2} href="Submit">Submit a game</MenuItem>
+					        <MenuItem eventKey={3.3} href="MyProfile">My Account</MenuItem>
+					        <MenuItem divider />
+					        <MenuItem eventKey={3.3} href="/" onClick={this.handleLogOut}>Log Out</MenuItem>
+					    </NavDropdown>
 
-			      <NavItem onClick={this.handleLoginShow} eventKey={2} href="#">
-			        Log In
-			      </NavItem>
+			    		:
 
-			      <Modal className='NavBar-modal' bsSize="small" show={this.state.loginShow} onHide={this.handleLoginClose}>
-			          <Modal.Header closeButton>
-			            <Modal.Title>Log In</Modal.Title>
-			          </Modal.Header>
-			          <Modal.Body>
-			            <form>
-				            <FormGroup>
-						      <ControlLabel>Email address</ControlLabel>
-						      <FormControl
-						      	type="text"
-					            placeholder="Email"
-						      />
-						    </FormGroup>
-						    <FormGroup>
-						      <ControlLabel>Password</ControlLabel>
-						      <FormControl
-						      	type="password"
-						      	placeholder="Password"
-						      />
-						    </FormGroup>
-					    </form>
-			          </Modal.Body>
-			          <Modal.Footer>
-			            <Button bsStyle="primary" onClick={this.handleLoginClose}>Submit</Button>
-			          </Modal.Footer>
-			       </Modal>
+			    		<NavItem eventKey={2} href="Login">
+					    	Log In
+					    </NavItem>
 
+			    	}
 			    </Nav>
 			  </Navbar.Collapse>
 			</Navbar>
