@@ -29,4 +29,4 @@ class Home extends Component {
   }
 }
 
-export default withAuthenticator(Home, true);
+export default Home;
