@@ -16,7 +16,7 @@ namespace AutomatedTesting.Infrastructure.Logic
     {
         private readonly ILogger<TestingLogic> _logger;
         private readonly IS3Data _s3Data;
-        private readonly object _sync;
+        private readonly Object _sync = new Object();
         public TestingVariables testProcess = new TestingVariables();
 
 
@@ -37,49 +37,68 @@ namespace AutomatedTesting.Infrastructure.Logic
                     string debugKey = "arcade_games/AlienDefense5(Final).zip";
                     string fileLocation = _s3Data.ReadObjectDataAsync(debugKey).Result;
 
+                    //Variables for each test
+                    bool startTest;
+                    bool sleepTest;
+                    bool stopTest;
+
                     //get s3 and download zip file, return file location
 
-                    //unzip file and returned unzip location
-                    string unzipFile = Unzip(fileLocation);
+                    //Point variable to folder which contains .exe file
+                    fileLocation = FindSubDir(fileLocation);
 
                     //Find .exe file path
-                    string exeFile = FindExe(unzipFile);
+                    string exeFile = FindExe(fileLocation);
 
                     //start .exe, check to see if it started
-                    bool startTest = StartFile(exeFile);
+                    startTest = StartFile(exeFile);
+
+                    //Quit out of tests if process does not start
+                    if (!startTest)
+                    {
+                        sleepTest = false;
+                        stopTest = false;
+                        return;
+                    }
 
                     //Thread.Sleep(5000);
-                    bool sleepTest = SleepFile(exeFile);
+                    sleepTest = SleepFile(exeFile);
+
+                    //Quit out of tests if process does not stay open for 5 min
+                    if (!sleepTest)
+                    {
+                        stopTest = false;
+                        return;
+                    }
 
                     //stop .exe, check to see if it stopped
-                    bool stopTest = StopFile(exeFile);
+                    stopTest = StopFile(exeFile);
                 }
             }
+
             catch(Exception e)
             {
                 _logger.LogError(e.Message, e);
             }
-            
-
         }
 
-        public string Unzip(string zipFile)
+        //Finds folder within directory and returns its path
+        public string FindSubDir(string dir)
         {
             try
             {
-                string extractPath = @".\extract";
+                string[] directories = Directory.GetDirectories(dir);
 
-                ZipFile.ExtractToDirectory(zipFile, extractPath);
-
-                return extractPath;
+                return directories[0];
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 _logger.LogError(e.Message, e);
                 return null;
             }
         }
 
+        //Finds .exe file within directory and returns its path
         string FindExe(string unzipFile)
         {
             try
@@ -97,6 +116,7 @@ namespace AutomatedTesting.Infrastructure.Logic
             
         }
 
+        //Starts .exe file and checks to see whether the process is running
         public bool StartFile(string exeFile)
         {
             try
@@ -114,11 +134,12 @@ namespace AutomatedTesting.Infrastructure.Logic
             }         
         }
 
+        //Waits 5 minutes and then checks to see if process is still running
         public bool SleepFile(string exeFile)
         {
             try
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(300000);
 
                 return Process.GetProcessesByName(exeFile)
                    .FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"c:\loc1")) != default(Process);
@@ -131,12 +152,13 @@ namespace AutomatedTesting.Infrastructure.Logic
             }
         }
 
+        //Kills process and then checks to see if process has succesfully been closed
         public bool StopFile(string exeFile)
         {
             try
             {
                 testProcess.GameProcess.Close();
-                Thread.Sleep(300);
+                Thread.Sleep(18000);
 
                 return Process.GetProcessesByName(exeFile)
                    .FirstOrDefault(p => p.MainModule.FileName.StartsWith(@"c:\loc1")) != default(Process);

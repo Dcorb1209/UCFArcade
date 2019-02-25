@@ -1,0 +1,32 @@
+Initialize engine version: 5.6.2f1 (a2913c821e27)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 8610G (ID=0x990f)
+    Vendor:   ATI
+    VRAM:     738 MB
+    Driver:   15.200.1055.0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.372 seconds
+Platform assembly: C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Emulators\Games\StudentGames\AlienDefense5(Final)\AD5_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initialized touch support.
+UnloadTime: 2.484665 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 226c -> priority: 1 
+  Thread -> id: 2350 -> priority: 1 

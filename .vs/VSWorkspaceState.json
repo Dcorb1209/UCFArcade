@@ -4,7 +4,11 @@
     "\\AutomatedTesting",
     "\\AutomatedTesting\\AutomatedTesting",
     "\\AutomatedTesting\\AutomatedTesting\\Infrastructure",
-    "\\AutomatedTesting\\AutomatedTesting\\Infrastructure\\Logic"
+    "\\AutomatedTesting\\AutomatedTesting\\Infrastructure\\Data",
+    "\\AutomatedTesting\\AutomatedTesting\\Infrastructure\\Data\\Infrastructure",
+    "\\AutomatedTesting\\AutomatedTesting\\Infrastructure\\Logic",
+    "\\AutomatedTesting\\AutomatedTesting\\Models",
+    "\\KnightArcade"
   ],
   "SelectedNode": "\\AutomatedTesting\\AutomatedTesting\\Infrastructure\\Logic\\TestingLogic.cs",
   "PreviewInSolutionExplorer": false
