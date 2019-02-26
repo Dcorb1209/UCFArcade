@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import NaviBar from './Components/NavBar';
 import './GameAdvert.css';
+import GameSlides from './Components/GameSlides';
 import GameAdSlides from './Components/GameAdSlides';
-import {Panel, Grid, Row, Col, Glyphicon, Button} from 'react-bootstrap';
+import {Panel, Grid, Row, Col, Glyphicon, Button, Form, FormControl, FormGroup, ControlLabel} from 'react-bootstrap';
 
 class GameAdvert extends Component {
   render() {
@@ -17,30 +18,37 @@ class GameAdvert extends Component {
                     </Col>
                 </Row>
                 <Row style={{ marginLeft: 0, marginRight: 0 }}>
-                <Panel className = 'GameAdPanel'>
-                <Panel.Body className = 'GameAdPanelBody'>
-                  <Col md={6} mdOffset={0} style={{ paddingLeft: 0, paddingRight: 0 }}>
-                    <GameAdSlides/>
+                  <Col>
+                    <Grid>
+                      <Row> 
+                      <Col md={10} mdOffset={0} sm={10} smOffset={0} style={{ paddingLeft: 0, paddingRight: 0 }}>
+                      <GameAdSlides/>
+                     </Col>
+                     <Col md={2} mdOffset={0} sm={2} smOffset={1} style={{ paddingLeft: 0, paddingRight: 0 }}>
+                        <Form>
+                          <FormGroup>
+                            <ControlLabel>Creator</ControlLabel>
+                            <FormControl.Static>Terry Crews</FormControl.Static>
+                          </FormGroup>
+                          <FormGroup>
+                            <ControlLabel>Date Published</ControlLabel>
+                            <FormControl.Static>11-11-2019</FormControl.Static>
+                          </FormGroup>
+                          <FormGroup>
+                            <ControlLabel>Genres</ControlLabel>
+                            <FormControl.Static>Action Adventure Shooter</FormControl.Static>
+                          </FormGroup>
+                          <FormGroup>
+                            <ControlLabel>Available On Arcade Machines</ControlLabel>
+                            <Glyphicon className='Check' glyph='ok'></Glyphicon>
+                            </FormGroup>
+                          <Button bsStyle='link'>Download Game</Button>
+                        </Form>
+                      </Col>
+                      </Row>  
+                    </Grid>
+                    
                   </Col>
-                  <Col md={3} mdOffset={3} style={{ paddingLeft: 0, paddingRight: 0 }}>
-                    <div>
-                      <h3>Creator</h3>
-                      <p>Terry Crews</p>
-                      <h3>Date Published</h3>
-                      <p>2019-02-10 12:29:00</p>
-                      <h3>Genres</h3>
-                      <p className = 'GameAdGenreList'>Action, Adventure</p>
-                      <br></br>
-                      <h4>Available on arcade machines:</h4>
-                      <Glyphicon glyph='ok' className = 'Check'/> 
-                      <br></br>
-                      <a className ='GameAdDownload' href ="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target = "_blank">
-                        <button href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ" download = "Rick">Download</button>
-                      </a>
-                    </div>
-                  </Col>
-                </Panel.Body>
-                </Panel>
                 </Row>
                 <Row style={{ marginLeft: 0, marginRight: 0 }}>
                   <Col md={4} mdOffset={2} style={{ paddingLeft: 0, paddingRight: 0 }}>

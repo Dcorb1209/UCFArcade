@@ -28,6 +28,24 @@ namespace AutomatedTesting.Controllers
             return Ok("Hello");
         }
 
+        [HttpGet("testgame")]
+        public IActionResult GetGame()
+
+        {
+            try
+            {
+                _testingLogic.Start();
+                return Ok();
+
+            }
+
+            catch(Exception e)
+            {
+                _logger.LogError(e.Message, e);
+                return StatusCode(500);
+            }
+        }
+
         [HttpGet("basictest")]
         public IActionResult PostAutomatedTest()
 
