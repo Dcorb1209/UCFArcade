@@ -28,7 +28,7 @@ namespace KnightArcade.Infrastructure.Data.Interface
         void DeleteTests(int gameId);
 
         TestsQueue GetTestsQueue(int gameId);
-        TestsQueue GetTestsQueue()
+        TestsQueue GetTestsQueue();
         List<TestsQueue> GetAllTestsQueue();
         void PostTestsQueue(TestsQueue test);
         void PutTestsQueue(TestsQueue test);
