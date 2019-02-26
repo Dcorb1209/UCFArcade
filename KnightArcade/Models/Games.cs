@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace KnightArcade.Models
 {
-    public class Games
+    public partial class Games
     {
-        public int GameId { get; set; }
+        public int? GameId { get; set; }
         public string GameName { get; set; }
         public int GameCreatorId { get; set; }
         public string GameCreatorname { get; set; }
@@ -21,7 +21,7 @@ namespace KnightArcade.Models
         public string GameImage2 { get; set; }
         public string GameImage3 { get; set; }
         public string GameImage4 { get; set; }
-        public DateTime GameSubmissiondate { get; set; }
-        public DateTime? GameReviewdate { get; set; }
+        public DateTime GameSubmissiondateUtc { get; set; }
+        public DateTime? GameReviewdateUtc { get; set; }
     }
 }

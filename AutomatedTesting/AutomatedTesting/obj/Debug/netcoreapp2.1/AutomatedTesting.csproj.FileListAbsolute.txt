@@ -26,3 +26,17 @@ C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debu
 C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.RazorTargetAssemblyInfo.cache
 C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.dll
 C:\Users\John\Documents\KnightsArcade\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.pdb
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\bin\Debug\netcoreapp2.1\AutomatedTesting.deps.json
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\bin\Debug\netcoreapp2.1\AutomatedTesting.runtimeconfig.json
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\bin\Debug\netcoreapp2.1\AutomatedTesting.runtimeconfig.dev.json
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\bin\Debug\netcoreapp2.1\AutomatedTesting.dll
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\bin\Debug\netcoreapp2.1\AutomatedTesting.pdb
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.csproj.CoreCompileInputs.cache
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.RazorAssemblyInfo.cache
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.RazorAssemblyInfo.cs
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.AssemblyInfoInputs.cache
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.AssemblyInfo.cs
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.RazorTargetAssemblyInfo.cache
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.dll
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.pdb
+C:\Users\kre3e\OneDrive\Documents\ArcadeGRASS\AutomatedTesting\AutomatedTesting\obj\Debug\netcoreapp2.1\AutomatedTesting.csprojAssemblyReference.cache

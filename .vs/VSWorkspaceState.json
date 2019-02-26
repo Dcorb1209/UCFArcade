@@ -1,11 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\AutomatedTesting",
     "\\AutomatedTesting\\AutomatedTesting",
-    "\\AutomatedTesting\\AutomatedTesting\\Infrastructure",
-    "\\AutomatedTesting\\AutomatedTesting\\Infrastructure\\Logic"
+    "\\KnightArcade",
+    "\\KnightArcade\\Controllers",
+    "\\KnightArcade\\Infrastructure",
+    "\\KnightArcade\\Infrastructure\\Data",
+    "\\KnightArcade\\Infrastructure\\Logic",
+    "\\KnightArcade\\Models",
+    "\\KnightArcade\\Pages"
   ],
-  "SelectedNode": "\\AutomatedTesting\\AutomatedTesting\\Infrastructure\\Logic\\TestingLogic.cs",
+  "SelectedNode": "\\KnightArcade\\Controllers\\PublicController.cs",
   "PreviewInSolutionExplorer": false
 }
